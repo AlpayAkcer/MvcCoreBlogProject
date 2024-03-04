@@ -18,6 +18,11 @@ namespace MvcCoreBlogProject.BusinessLayer.Concrete
             _categoryDal.Add(entity);
         }
 
+        public int TCategoryByCount()
+        {
+            return _categoryDal.CategoryByCount();
+        }
+
         public void TDelete(Category entity)
         {
             _categoryDal.Delete(entity);

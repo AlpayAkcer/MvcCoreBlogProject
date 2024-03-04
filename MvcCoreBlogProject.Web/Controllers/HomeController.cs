@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MvcCoreBlogProject.BusinessLayer.Abstract;
 using MvcCoreBlogProject.Web.Models;
 using System.Diagnostics;
 
@@ -6,16 +7,18 @@ namespace MvcCoreBlogProject.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ICategoryService _categoryService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ICategoryService categoryService)
         {
-            _logger = logger;
+            _categoryService = categoryService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var value = _categoryService.TGetListAll();
+            ViewBag.CategoryCount = _categoryService.TCategoryByCount();
+            return View(value);
         }
 
         public IActionResult Privacy()
