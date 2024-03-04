@@ -1,33 +1,41 @@
 ﻿using MvcCoreBlogProject.BusinessLayer.Abstract;
+using MvcCoreBlogProject.DataAccessLayer.Abstract;
 using MvcCoreBlogProject.EntityLayer.Concrete;
 
 namespace MvcCoreBlogProject.BusinessLayer.Concrete
 {
     public class AuthorManager : IAuthorService
     {
+        private readonly IAuthorDal _authorDal;
+
+        public AuthorManager(IAuthorDal authorDal)
+        {
+            _authorDal = authorDal;
+        }
+
         public void TAdd(Author entity)
         {
-            throw new NotImplementedException();
+            _authorDal.Add(entity);
         }
 
         public void TDelete(Author entity)
         {
-            throw new NotImplementedException();
+            _authorDal.Delete(entity);
         }
 
         public Author TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _authorDal.GetByID(id);
         }
 
         public List<Author> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _authorDal.GetListAll();
         }
 
         public void TUpdate(Author entity)
         {
-            throw new NotImplementedException();
+            _authorDal.Update(entity);
         }
     }
 }

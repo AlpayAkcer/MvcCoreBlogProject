@@ -1,33 +1,41 @@
 ﻿using MvcCoreBlogProject.BusinessLayer.Abstract;
+using MvcCoreBlogProject.DataAccessLayer.Abstract;
 using MvcCoreBlogProject.EntityLayer.Concrete;
 
 namespace MvcCoreBlogProject.BusinessLayer.Concrete
 {
     public class CommentManager : ICommentService
     {
+        private readonly ICommentDal _commentDal;
+
+        public CommentManager(ICommentDal commentDal)
+        {
+            _commentDal = commentDal;
+        }
+
         public void TAdd(Comment entity)
         {
-            throw new NotImplementedException();
+            _commentDal.Add(entity);
         }
 
         public void TDelete(Comment entity)
         {
-            throw new NotImplementedException();
+            _commentDal.Delete(entity);
         }
 
         public Comment TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _commentDal.GetByID(id);
         }
 
         public List<Comment> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _commentDal.GetListAll();
         }
 
         public void TUpdate(Comment entity)
         {
-            throw new NotImplementedException();
+            _commentDal.Update(entity);
         }
     }
 }

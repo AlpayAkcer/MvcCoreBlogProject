@@ -7,6 +7,8 @@ namespace MvcCoreBlogProject.EntityLayer.Concrete
         //Yorumların Bilgileri
         [Key]
         public int CommentID { get; set; }
+        public int BlogID { get; set; }
+        public Blog Blog { get; set; }
         public string CommentUserName { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

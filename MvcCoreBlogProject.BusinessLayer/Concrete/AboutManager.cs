@@ -1,33 +1,41 @@
 ﻿using MvcCoreBlogProject.BusinessLayer.Abstract;
+using MvcCoreBlogProject.DataAccessLayer.Abstract;
 using MvcCoreBlogProject.EntityLayer.Concrete;
 
 namespace MvcCoreBlogProject.BusinessLayer.Concrete
 {
     public class AboutManager : IAboutService
     {
+        private readonly IAboutDal _aboutDal;
+
+        public AboutManager(IAboutDal aboutDal)
+        {
+            _aboutDal = aboutDal;
+        }
+
         public void TAdd(About entity)
         {
-            throw new NotImplementedException();
+            _aboutDal.Add(entity);
         }
 
         public void TDelete(About entity)
         {
-            throw new NotImplementedException();
+            _aboutDal.Delete(entity);
         }
 
         public About TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _aboutDal.GetByID(id);
         }
 
         public List<About> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _aboutDal.GetListAll();
         }
 
         public void TUpdate(About entity)
         {
-            throw new NotImplementedException();
+            _aboutDal.Update(entity);
         }
     }
 }

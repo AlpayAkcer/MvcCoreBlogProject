@@ -1,33 +1,41 @@
 ﻿using MvcCoreBlogProject.BusinessLayer.Abstract;
+using MvcCoreBlogProject.DataAccessLayer.Abstract;
 using MvcCoreBlogProject.EntityLayer.Concrete;
 
 namespace MvcCoreBlogProject.BusinessLayer.Concrete
 {
     public class ContactManager : IContactService
     {
-        public void TAdd(Comment entity)
+        private readonly IContactDal _contactDal;
+
+        public ContactManager(IContactDal contactDal)
         {
-            throw new NotImplementedException();
+            _contactDal = contactDal;
         }
 
-        public void TDelete(Comment entity)
+        public void TAdd(Contact entity)
         {
-            throw new NotImplementedException();
+            _contactDal.Add(entity);
         }
 
-        public Comment TGetByID(int id)
+        public void TDelete(Contact entity)
         {
-            throw new NotImplementedException();
+            _contactDal.Delete(entity);
         }
 
-        public List<Comment> TGetListAll()
+        public Contact TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _contactDal.GetByID(id);
         }
 
-        public void TUpdate(Comment entity)
+        public List<Contact> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _contactDal.GetListAll();
+        }
+
+        public void TUpdate(Contact entity)
+        {
+            _contactDal.Update(entity);
         }
     }
 }

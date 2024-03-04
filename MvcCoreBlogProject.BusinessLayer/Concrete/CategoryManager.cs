@@ -1,33 +1,41 @@
 ﻿using MvcCoreBlogProject.BusinessLayer.Abstract;
+using MvcCoreBlogProject.DataAccessLayer.Abstract;
 using MvcCoreBlogProject.EntityLayer.Concrete;
 
 namespace MvcCoreBlogProject.BusinessLayer.Concrete
 {
     public class CategoryManager : ICategoryService
     {
+        private readonly ICategoryDal _categoryDal;
+
+        public CategoryManager(ICategoryDal categoryDal)
+        {
+            _categoryDal = categoryDal;
+        }
+
         public void TAdd(Category entity)
         {
-            throw new NotImplementedException();
+            _categoryDal.Add(entity);
         }
 
         public void TDelete(Category entity)
         {
-            throw new NotImplementedException();
+            _categoryDal.Delete(entity);
         }
 
         public Category TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _categoryDal.GetByID(id);
         }
 
         public List<Category> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _categoryDal.GetListAll();
         }
 
         public void TUpdate(Category entity)
         {
-            throw new NotImplementedException();
+            _categoryDal.Update(entity);
         }
     }
 }

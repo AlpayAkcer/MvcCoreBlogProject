@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcCoreBlogProject.DataAccessLayer.Concrete;
 
@@ -11,9 +12,10 @@ using MvcCoreBlogProject.DataAccessLayer.Concrete;
 namespace MvcCoreBlogProject.DataAccessLayer.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    partial class BlogContextModelSnapshot : ModelSnapshot
+    [Migration("20240304120340_mig_update_entity_layer_blog_category")]
+    partial class mig_update_entity_layer_blog_category
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -154,9 +156,6 @@ namespace MvcCoreBlogProject.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentID"), 1L, 1);
 
-                    b.Property<int>("BlogID")
-                        .HasColumnType("int");
-
                     b.Property<string>("CommentUserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -176,8 +175,6 @@ namespace MvcCoreBlogProject.DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CommentID");
-
-                    b.HasIndex("BlogID");
 
                     b.ToTable("Comments");
                 });
@@ -226,22 +223,6 @@ namespace MvcCoreBlogProject.DataAccessLayer.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("MvcCoreBlogProject.EntityLayer.Concrete.Comment", b =>
-                {
-                    b.HasOne("MvcCoreBlogProject.EntityLayer.Concrete.Blog", "Blog")
-                        .WithMany("Comments")
-                        .HasForeignKey("BlogID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Blog");
-                });
-
-            modelBuilder.Entity("MvcCoreBlogProject.EntityLayer.Concrete.Blog", b =>
-                {
-                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("MvcCoreBlogProject.EntityLayer.Concrete.Category", b =>

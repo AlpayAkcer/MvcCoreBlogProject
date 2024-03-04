@@ -2,7 +2,7 @@
 
 namespace MvcCoreBlogProject.BusinessLayer.Abstract
 {
-    public interface IContactService : IGenericService<Comment>
+    public interface IContactService : IGenericService<Contact>
     {
     }
 }

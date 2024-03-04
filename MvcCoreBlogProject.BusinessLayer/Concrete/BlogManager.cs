@@ -1,33 +1,41 @@
 ﻿using MvcCoreBlogProject.BusinessLayer.Abstract;
+using MvcCoreBlogProject.DataAccessLayer.Abstract;
 using MvcCoreBlogProject.EntityLayer.Concrete;
 
 namespace MvcCoreBlogProject.BusinessLayer.Concrete
 {
     public class BlogManager : IBlogService
     {
+        private readonly IBlogDal _blogDal;
+
+        public BlogManager(IBlogDal blogDal)
+        {
+            _blogDal = blogDal;
+        }
+
         public void TAdd(Blog entity)
         {
-            throw new NotImplementedException();
+            _blogDal.Add(entity);
         }
 
         public void TDelete(Blog entity)
         {
-            throw new NotImplementedException();
+            _blogDal.Delete(entity);
         }
 
         public Blog TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _blogDal.GetByID(id);
         }
 
         public List<Blog> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _blogDal.GetListAll();
         }
 
         public void TUpdate(Blog entity)
         {
-            throw new NotImplementedException();
+            _blogDal.Update(entity);
         }
     }
 }
