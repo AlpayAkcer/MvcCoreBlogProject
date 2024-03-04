@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MvcCoreBlogProject.DataAccessLayer\MvcCoreBlogProject.DataAccessLayer.csproj" />
     <ProjectReference Include="..\MvcCoreBlogProject.EntityLayer\MvcCoreBlogProject.EntityLayer.csproj" />
   </ItemGroup>
