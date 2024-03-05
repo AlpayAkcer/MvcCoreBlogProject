@@ -1,9 +1,13 @@
-﻿<header class="main-header header-style-1 font-heading">
+﻿@model List<Category>
+
+<header class="main-header header-style-1 font-heading">
     <div class="header-top">
         <div class="container">
             <div class="row pt-20 pb-20">
-                <div class="col-md-3 col-xs-6">
-                    <a href='/'><img class="logo" src="assets/imgs/theme/logo.png" alt=""></a>
+                <div class="col-md-3 mt-2 col-xs-6">
+                    <a href='/'>
+                        <h4><b>.NET Developer</b></h4>
+                    </a>
                 </div>
                 <div class="col-md-9 col-xs-6 text-right header-top-right ">
                     <ul class="list-inline nav-topbar d-none d-md-inline">
@@ -59,72 +63,14 @@
                 <nav>
                     <!--Desktop menu-->
                     <ul class="main-menu d-none d-lg-inline font-small">
-                        <li class="menu-item-has-children">
-                            <a href='/'> <i class="elegant-icon icon_house_alt mr-5"></i> Home</a>
-                            <ul class="sub-menu text-muted font-small">
-                                <li><a href='/'>Home default</a></li>
-                                <li><a href='/home-2'>Homepage 2</a></li>
-                                <li><a href='/home-3'>Homepage 3</a></li>
-                            </ul>
+                        <li>
+                            <a href='/'> <i class="elegant-icon icon_house_alt mr-5"></i></a>
                         </li>
-                        <li> <a href='/category-list'>Travel</a> </li>
-                        <li class="current-item has-mega-menu">
-                            <a href='/category-list'>Mega Menu</a>
-                            <ul class="mega-menu">
-                                <li class="sub-mega-menu sub-mega-menu-width-22">
-                                    <a class="menu-title" href="#">Travel Blog</a>
-                                    <ul>
-                                        <li><a href='/category-list'>Destinations</a></li>
-                                        <li><a href='/category-list'>Tour Guides</a></li>
-                                        <li><a href='/category-list'>Travel Food</a></li>
-                                        <li><a href='/category-list'>Hotels Booking</a></li>
-                                        <li><a href='/category-list'>Transport Review</a></li>
-                                        <li><a href='/category-list'>Travel Healthy</a></li>
-                                    </ul>
-                                </li>
-                                <li class="sub-mega-menu sub-mega-menu-width-22">
-                                    <a class="menu-title" href="#">Fruit &amp; Vegetables</a>
-                                    <ul>
-                                        <li><a href='/category-list'>Meat &amp; Poultry</a></li>
-                                        <li><a href='/category-list'>Fresh Vegetables</a></li>
-                                        <li><a href='/category-list'>Herbs &amp; Seasonings</a></li>
-                                        <li><a href='/category-list'>Cuts &amp; Sprouts</a></li>
-                                        <li><a href='/category-list'>Exotic Fruits &amp; Veggies</a></li>
-                                        <li><a href='/category-list'>Packaged Produce</a></li>
-                                    </ul>
-                                </li>
-                                <li class="sub-mega-menu sub-mega-menu-width-22">
-                                    <a class="menu-title" href="#">Breakfast &amp; Dairy</a>
-                                    <ul>
-                                        <li><a href='/category-list'>Milk &amp; Flavoured Milk</a></li>
-                                        <li><a href='/category-list'>Butter and Margarine</a></li>
-                                        <li><a href='/category-list'>Eggs Substitutes</a></li>
-                                        <li><a href='/category-list'>Marmalades</a></li>
-                                        <li><a href='/category-list'>Sour Cream</a></li>
-                                        <li><a href='/category-list'>Cheese</a></li>
-                                    </ul>
-                                </li>
-                                <li class="sub-mega-menu sub-mega-menu-width-22">
-                                    <a class="menu-title" href="#">Meat &amp; Seafood</a>
-                                    <ul>
-                                        <li><a href='/category-list'>Breakfast Sausage</a></li>
-                                        <li><a href='/category-list'>Dinner Sausage</a></li>
-                                        <li><a href='/category-list'>Chicken</a></li>
-                                        <li><a href='/category-list'>Sliced Deli Meat</a></li>
-                                        <li><a href='/category-list'>Wild Caught Fillets</a></li>
-                                        <li><a href='/category-list'>Crab and Shellfish</a></li>
-                                    </ul>
-                                </li>
 
-                            </ul>
-                        </li>
-                        <li> <a href='/category-grid'>Guides</a> </li>
-                        <li> <a href='/category-masonry'>Food</a> </li>
-                        <li> <a href='/category-big'>Hotels</a> </li>
-                        <li> <a href='/category'>Review</a> </li>
-                        <li> <a href='/category'>Healthy </a> </li>
-                        <li> <a href='/category'>Lifestyle</a> </li>
-                        <li> <a href='/category'>Blog</a> </li>
+                        @foreach (var item in Model.Take(10))
+                        {
+                            <li> <a href='/Kategori/@item.CategoryID'>@item.Name</a> </li>
+                        }
                     </ul>
                     <!--Mobile menu-->
                     <ul id="mobile-menu" class="d-block d-lg-none text-muted">

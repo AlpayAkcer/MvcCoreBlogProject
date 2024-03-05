@@ -1,28 +1,15 @@
 ﻿<!DOCTYPE html>
-<html class="no-js" lang="en">
-
+<html class="no-js" lang="tr">
 @await Component.InvokeAsync("_LayoutHeaderScriptPartialComponent")
 <body>
     <div class="scroll-progress primary-bg"></div>
-
     @await Component.InvokeAsync("_LayoutSidebarPartialComponent")
-    <!-- Start Header -->
     @await Component.InvokeAsync("_LayoutNavbarPartialComponent")
-    <!--Start search form-->
     @await Component.InvokeAsync("_LayoutSearchPartialComponent")
-    <!-- Start Main content -->
     @RenderBody()
-    <!-- End Main content -->
-    <!--site-bottom-->
     @await Component.InvokeAsync("_LayoutBottomMenuPartialComponent")
-    <!--end site-bottom-->
-    <!-- Footer Start-->
     @await Component.InvokeAsync("_LayoutFooterPartialComponent")
-    <!-- End Footer -->
     <div class="dark-mark"></div>
-    <!-- Vendor JS-->
-
     @await Component.InvokeAsync("_LayoutScriptPartialComponent")
 </body>
-
 </html>

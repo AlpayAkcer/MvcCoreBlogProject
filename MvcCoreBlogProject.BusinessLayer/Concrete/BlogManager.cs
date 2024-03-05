@@ -23,14 +23,44 @@ namespace MvcCoreBlogProject.BusinessLayer.Concrete
             _blogDal.Delete(entity);
         }
 
+        public List<Blog> TGetBlogByCategoryList()
+        {
+            return _blogDal.GetBlogByCategoryList();
+        }
+
+        public List<Blog> TGetBlogByCommentList()
+        {
+            return _blogDal.GetBlogByCommentList();
+        }
+
         public Blog TGetByID(int id)
         {
             return _blogDal.GetByID(id);
         }
 
+        public List<Blog> TGetCategoryByBlogList(int id)
+        {
+            return _blogDal.GetCategoryByBlogList(id);
+        }
+
+        public List<Blog> TGetCategoryByFeaturedList()
+        {
+            return _blogDal.GetCategoryByFeaturedList();
+        }
+
         public List<Blog> TGetListAll()
         {
             return _blogDal.GetListAll();
+        }
+
+        public List<Blog> TGetMostPopularBlogList()
+        {
+            return _blogDal.GetMostPopularBlogList();
+        }
+
+        public int TTotalViewCount(int id)
+        {
+            return _blogDal.TotalViewCount(id);
         }
 
         public void TUpdate(Blog entity)

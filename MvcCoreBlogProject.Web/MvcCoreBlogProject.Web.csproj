@@ -30,7 +30,6 @@
     <Folder Include="wwwroot\Admin\" />
     <Folder Include="wwwroot\Author\" />
     <Folder Include="wwwroot\Login\" />
-    <Folder Include="wwwroot\Web\assets\imgs\" />
   </ItemGroup>
 
 </Project>

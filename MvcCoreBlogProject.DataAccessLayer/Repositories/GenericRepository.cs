@@ -1,5 +1,6 @@
 ﻿using MvcCoreBlogProject.DataAccessLayer.Abstract;
 using MvcCoreBlogProject.DataAccessLayer.Concrete;
+using System.Linq.Expressions;
 
 namespace MvcCoreBlogProject.DataAccessLayer.Repositories
 {
@@ -29,6 +30,11 @@ namespace MvcCoreBlogProject.DataAccessLayer.Repositories
         public List<T> GetListAll()
         {
             return _context.Set<T>().ToList();
+        }
+
+        public List<T> List(Expression<Func<T, bool>> filter)
+        {
+            return _context.Set<T>().Where(filter).ToList();
         }
 
         public void Update(T entity)
