@@ -16,7 +16,14 @@
                         <a href='/Blog/Detail/@item.BlogID'>@item.Title</a>
                     </h5>
                     <div class="post-excerpt mb-25 font-small text-muted">
-                        <p>@item.Description</p>
+                        @if (item.Description != null)
+                        {
+                            <p>@item.Description</p>
+                        }
+                        else
+                        {
+                            @item.Description
+                        }
                     </div>
                     <div class="entry-meta meta-1 float-left font-x-small text-capitalize">
                         <span class="post-on">@(((DateTime)item.CreateDate).ToString("dd/MM/yyyy"))</span>

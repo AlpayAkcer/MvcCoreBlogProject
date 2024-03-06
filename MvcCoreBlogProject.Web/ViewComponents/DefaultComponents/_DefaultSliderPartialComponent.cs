@@ -12,7 +12,7 @@ namespace MvcCoreBlogProject.Web.ViewComponents.DefaultComponents
             _blogService = blogService;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public IViewComponentResult Invoke()
         {
             var list = _blogService.TGetBlogByCategoryList();
             return View(list);

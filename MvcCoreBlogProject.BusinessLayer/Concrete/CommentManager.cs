@@ -28,6 +28,11 @@ namespace MvcCoreBlogProject.BusinessLayer.Concrete
             return _commentDal.GetByID(id);
         }
 
+        public List<Comment> TGetCommentsByBlogList(int id)
+        {
+            return _commentDal.GetCommentsByBlogList(id);
+        }
+
         public List<Comment> TGetListAll()
         {
             return _commentDal.GetListAll();

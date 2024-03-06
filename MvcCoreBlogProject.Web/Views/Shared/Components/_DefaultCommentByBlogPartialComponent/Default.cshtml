@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Comment>
+
+<div class="comments-area">
+    <div class="widget-header-2 position-relative mb-30">
+        <h5 class="mt-5 mb-30">Yorumlar</h5>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="comment-list wow fadeIn animated">
+            <div class="single-comment justify-content-between d-flex">
+                <div class="user justify-content-between d-flex">
+                    <div class="thumb">
+                        <img src="/Web/assets/imgs/authors/author-4.jpg" alt="">
+                    </div>
+                    <div class="desc">
+                        <h4>@item.Title</h4>
+                        <p class="comment">
+                            @item.Description
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <h5>
+                                    <a href="#">@item.CommentUserName</a>
+                                </h5>
+                                <p class="date">@(((DateTime)item.CreateDate).ToString("dd/MM/yyyy")) </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

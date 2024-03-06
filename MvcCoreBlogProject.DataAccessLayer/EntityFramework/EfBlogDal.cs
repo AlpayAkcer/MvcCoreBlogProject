@@ -67,7 +67,7 @@ namespace MvcCoreBlogProject.DataAccessLayer.EntityFramework
             var value = context.Blogs.FirstOrDefault(x => x.BlogID == id);
             if (value != null)
             {
-                if (value.TopViewCount == null)
+                if (value.TopViewCount == 0)
                     value.TopViewCount = 0;
 
                 value.TopViewCount++;

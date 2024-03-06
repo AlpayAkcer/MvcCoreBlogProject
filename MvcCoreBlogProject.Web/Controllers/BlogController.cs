@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MvcCoreBlogProject.BusinessLayer.Abstract;
+using MvcCoreBlogProject.BusinessLayer.Concrete;
 using MvcCoreBlogProject.EntityLayer.Concrete;
 using MvcCoreBlogProject.Web.Dto.BlogDto;
 using X.PagedList;
