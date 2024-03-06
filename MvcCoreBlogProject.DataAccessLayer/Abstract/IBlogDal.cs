@@ -12,5 +12,6 @@ namespace MvcCoreBlogProject.DataAccessLayer.Abstract
         List<Blog> GetMostPopularBlogList();
         List<Blog> GetLastBlogByList();
         List<Blog> GetLastBlogByPopupTwoList();
+        List<Blog> GetBlogByAuthor(int id);
     }
 }

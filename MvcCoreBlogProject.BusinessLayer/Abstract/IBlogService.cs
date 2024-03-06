@@ -12,5 +12,6 @@ namespace MvcCoreBlogProject.BusinessLayer.Abstract
         List<Blog> TGetMostPopularBlogList();
         List<Blog> TGetLastBlogByList();
         List<Blog> TGetLastBlogByPopupTwoList();
+        List<Blog> TGetBlogByAuthor(int id);
     }
 }

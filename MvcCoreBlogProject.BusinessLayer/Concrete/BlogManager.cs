@@ -23,6 +23,11 @@ namespace MvcCoreBlogProject.BusinessLayer.Concrete
             _blogDal.Delete(entity);
         }
 
+        public List<Blog> TGetBlogByAuthor(int id)
+        {
+            return _blogDal.GetBlogByAuthor(id);
+        }
+
         public List<Blog> TGetBlogByCategoryList()
         {
             return _blogDal.GetBlogByCategoryList();

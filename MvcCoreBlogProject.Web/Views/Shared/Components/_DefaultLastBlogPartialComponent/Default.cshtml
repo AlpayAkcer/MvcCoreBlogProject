@@ -28,6 +28,11 @@
                     <div class="entry-meta meta-1 float-left font-x-small text-capitalize">
                         <span class="post-on">@(((DateTime)item.CreateDate).ToString("dd/MM/yyyy"))</span>
                         <span class="post-by">@item.TopViewCount Görüntüleme</span>
+                        <a href='/AuthorByBlogPage/@item.AuthorID'>
+                            <span class="post-by">
+                                @item.Author.Name @item.Author.Surname
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>

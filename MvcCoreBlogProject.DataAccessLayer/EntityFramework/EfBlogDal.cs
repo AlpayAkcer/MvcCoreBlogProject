@@ -12,52 +12,59 @@ namespace MvcCoreBlogProject.DataAccessLayer.EntityFramework
         {
         }
 
+        public List<Blog> GetBlogByAuthor(int id)
+        {
+            using var context = new BlogContext();
+            var value = context.Blogs.Include(x => x.Category).Include(p => p.Author).Where(x => x.AuthorID == id).ToList();
+            return value;
+        }
+
         public List<Blog> GetBlogByCategoryList()
         {
             using var context = new BlogContext();
-            var value = context.Blogs.Include(x => x.Category).Where(x => x.IsFeatured == true).ToList();
+            var value = context.Blogs.Include(x => x.Category).Include(p => p.Author).Where(x => x.IsFeatured == true).ToList();
             return value;
         }
 
         public List<Blog> GetBlogByCommentList()
         {
             using var context = new BlogContext();
-            var value = context.Blogs.Include(x => x.Category).Include(s => s.Comments).Where(x => x.Comments.Count > 3).Take(4).ToList();
+            var value = context.Blogs.Include(x => x.Category).Include(p => p.Author).Include(s => s.Comments).Where(x => x.Comments.Count > 3).Take(4).ToList();
             return value;
         }
 
         public List<Blog> GetCategoryByBlogList(int id)
         {
             using var context = new BlogContext();
-            var value = context.Blogs.Include(x => x.Category).Where(x => x.CategoryID == id).ToList();
+            var value = context.Blogs.Include(x => x.Category).Include(p => p.Author).Where(x => x.CategoryID == id).ToList();
             return value;
         }
 
         public List<Blog> GetCategoryByFeaturedList()
         {
             using var context = new BlogContext();
-            var value = context.Blogs.Include(x => x.Category).Where(p => p.IsFeatured == true).ToList();
+            var value = context.Blogs.Include(x => x.Category).Include(p => p.Author).Where(p => p.IsFeatured == true).ToList();
             return value;
         }
 
         public List<Blog> GetLastBlogByList()
         {
             using var context = new BlogContext();
-            var value = context.Blogs.Include(x => x.Category).OrderByDescending(x => x.BlogID).Take(8).ToList();
+            var value = context.Blogs.Include(x => x.Category).Include(p => p.Author).OrderByDescending(x => x.BlogID).Take(8).ToList();
             return value;
         }
 
         public List<Blog> GetLastBlogByPopupTwoList()
         {
             using var context = new BlogContext();
-            var value = context.Blogs.Include(x => x.Category).OrderByDescending(x => x.BlogID).Take(2).ToList();
+            var value = context.Blogs.Include(x => x.Category).Include(p => p.Author).OrderByDescending(x => x.BlogID).Take(2).ToList();
             return value;
         }
 
         public List<Blog> GetMostPopularBlogList()
         {
             using var context = new BlogContext();
-            var value = context.Blogs.Include(x => x.Category).Where(p => p.TopViewCount > 20).ToList();
+            var value = context.Blogs.Include(x => x.Category).Include(p => p.Author).Where(p => p.TopViewCount > 20).ToList();
             return value;
         }
 

@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using MvcCoreBlogProject.BusinessLayer.Abstract;
 using MvcCoreBlogProject.BusinessLayer.Concrete;
 using MvcCoreBlogProject.DataAccessLayer.Abstract;
@@ -30,6 +33,24 @@ builder.Services.AddScoped<ICommentDal, EfCommentDal>();
 builder.Services.AddScoped<IContactService, ContactManager>();
 builder.Services.AddScoped<IContactDal, EfContactDal>();
 
+//authorezation kýsmýný ayarlama yapmadan önce bu kod buloðunu yazmak ve eklemek gerekiyor.
+builder.Services.AddMvc(config =>
+{
+    var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+});
+
+builder.Services.AddMvc();
+builder.Services.AddAuthentication(
+        CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(x =>
+            {
+                x.LoginPath = "/Login/Index";
+            });
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -42,8 +63,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseRouting();
 
+//Oturum yetkilisi giriþ yapabilmek için authorization üzerinde eklenmesi gerekiyor.
+app.UseAuthentication();
+
+app.UseRouting();
+app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(

@@ -1,0 +1,53 @@
+﻿@model Author
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="bg-grey pt-80 pb-50">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-md-10">
+                <div class="login_wrap widget-taber-content p-30 bg-white border-radius-10">
+                    <div class="padding_eight_all bg-white">
+                        <div class="heading_s1 text-center">
+                            <h3 class="mb-30 font-weight-900">Yeni Üye Kayıt Oluşturma</h3>
+                        </div>
+                        @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Name" })
+                                @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Surname, new { @class = "form-control", placeholder = "Surname" })
+                                @Html.ValidationMessageFor(x => x.Surname, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", placeholder = "Mail" })
+                                @Html.ValidationMessageFor(x => x.Mail, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Password" })
+                                @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="btnSave" class="button button-contactForm btn-block">Kaydı Onayla</button>
+                            </div>
+                        }
+                        <div class="divider-text-center mt-15 mb-15">
+                            <span> or</span>
+                        </div>
+                        <div class="text-muted text-center">Daha önce kayıt oldunuz mu? <a href='/Giris'>Giriş Yapın</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    $("#btnSave").click(function () {
+        swal("Here's the title!", "...and here's the text!");
+    });
+</script>
