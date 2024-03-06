@@ -1,0 +1,31 @@
+﻿@model List<Comment>
+<div class="sidebar-widget widget-latest-posts mb-50 wow fadeInUp animated">
+    <div class="widget-header-1 position-relative mb-30">
+        <h5 class="mt-5 mb-30">Son Eklenen Yorumlar</h5>
+    </div>
+    <div class="post-block-list post-module-2">
+        <ul class="list-post">
+
+            @foreach (var item in Model)
+            {
+                <li class="mb-30 wow fadeInUp animated">
+                    <div class="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
+                        <div class="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
+                            <a class='color-white' href='/single'>
+                                <img src="/Web/assets/imgs/authors/author-2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="post-content media-body">
+                            <p class="mb-10">
+                                <a href="author.html"><strong>@item.CommentUserName</strong></a>
+                                <span class="ml-15 font-small text-muted has-dot">@(((DateTime)item.CreateDate).ToString("d"))</span>
+                            </p>
+                            <p class="text-muted font-small">@item.Title</p>
+                        </div>
+                    </div>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>

@@ -30,7 +30,7 @@ namespace MvcCoreBlogProject.BusinessLayer.Concrete
 
         public List<About> TGetListAll()
         {
-            return _aboutDal.GetListAll();
+            return _aboutDal.GetListAll().Take(1).ToList();
         }
 
         public void TUpdate(About entity)

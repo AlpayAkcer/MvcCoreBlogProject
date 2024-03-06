@@ -48,6 +48,16 @@ namespace MvcCoreBlogProject.BusinessLayer.Concrete
             return _blogDal.GetCategoryByFeaturedList();
         }
 
+        public List<Blog> TGetLastBlogByList()
+        {
+            return _blogDal.GetLastBlogByList();
+        }
+
+        public List<Blog> TGetLastBlogByPopupTwoList()
+        {
+            return _blogDal.GetLastBlogByPopupTwoList();
+        }
+
         public List<Blog> TGetListAll()
         {
             return _blogDal.GetListAll();

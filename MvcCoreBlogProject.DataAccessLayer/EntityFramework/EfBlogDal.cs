@@ -40,6 +40,20 @@ namespace MvcCoreBlogProject.DataAccessLayer.EntityFramework
             return value;
         }
 
+        public List<Blog> GetLastBlogByList()
+        {
+            using var context = new BlogContext();
+            var value = context.Blogs.Include(x => x.Category).OrderByDescending(x => x.BlogID).Take(8).ToList();
+            return value;
+        }
+
+        public List<Blog> GetLastBlogByPopupTwoList()
+        {
+            using var context = new BlogContext();
+            var value = context.Blogs.Include(x => x.Category).OrderByDescending(x => x.BlogID).Take(2).ToList();
+            return value;
+        }
+
         public List<Blog> GetMostPopularBlogList()
         {
             using var context = new BlogContext();

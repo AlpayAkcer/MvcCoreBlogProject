@@ -10,5 +10,7 @@ namespace MvcCoreBlogProject.BusinessLayer.Abstract
         int TTotalViewCount(int id);
         List<Blog> TGetCategoryByBlogList(int id);
         List<Blog> TGetMostPopularBlogList();
+        List<Blog> TGetLastBlogByList();
+        List<Blog> TGetLastBlogByPopupTwoList();
     }
 }

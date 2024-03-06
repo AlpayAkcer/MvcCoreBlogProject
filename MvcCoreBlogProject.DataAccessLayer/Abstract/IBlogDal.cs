@@ -10,5 +10,7 @@ namespace MvcCoreBlogProject.DataAccessLayer.Abstract
         int TotalViewCount(int id);
         List<Blog> GetCategoryByBlogList(int id);
         List<Blog> GetMostPopularBlogList();
+        List<Blog> GetLastBlogByList();
+        List<Blog> GetLastBlogByPopupTwoList();
     }
 }
