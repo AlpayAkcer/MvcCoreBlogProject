@@ -1,0 +1,25 @@
+
+
+-- Blog yazýsýna yeni bir yazý eklendiðinde tetiklenecek olan trigger
+
+Create Trigger AddBlogInRating
+on Blogs
+After Insert
+as
+Declare @ID int
+Select @ID=BlogID from inserted
+Insert into BlogRatings(BlogID,BlogTotalScore,BlogRatingCount)
+Values (@ID,0,0)
+
+
+-- Blog yazýsýna yeni bir yorum eklendiði zaman, BlogRating tablosuna atayacaðý deðerler
+Create Trigger AddScoreInComment
+On Comments	
+After Insert
+AS
+Declare @ID int
+Declare @Score int
+Declare @RatingCount int
+Select @ID = BlogID, @Score=Point from inserted
+Update BlogRatings Set BlogTotalScore = BlogTotalScore + @Score, BlogRatingCount+=1
+Where BlogID = @ID

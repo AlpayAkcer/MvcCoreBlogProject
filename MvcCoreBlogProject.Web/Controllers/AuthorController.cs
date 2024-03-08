@@ -71,7 +71,10 @@ namespace MvcCoreBlogProject.Web.Controllers
             ViewBag.Category = values;
 
 
-
+            if (blog.ImageUrl != null)
+            {
+                //var extention = Path.GetExtension(blog.ImageUrl.FileName)
+            }
             if (validationResult.IsValid) //IsValid eğer bu veriler geçerli ise
             {
                 blog.TopViewCount = 1;

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcCoreBlogProject.DataAccessLayer.Concrete;
 
@@ -11,9 +12,10 @@ using MvcCoreBlogProject.DataAccessLayer.Concrete;
 namespace MvcCoreBlogProject.DataAccessLayer.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    partial class BlogContextModelSnapshot : ModelSnapshot
+    [Migration("20240308090026_mig_add_yorum_tablosuna_puan_ekleme")]
+    partial class mig_add_yorum_tablosuna_puan_ekleme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -131,28 +133,6 @@ namespace MvcCoreBlogProject.DataAccessLayer.Migrations
                     b.HasIndex("CategoryID");
 
                     b.ToTable("Blogs");
-                });
-
-            modelBuilder.Entity("MvcCoreBlogProject.EntityLayer.Concrete.BlogRating", b =>
-                {
-                    b.Property<int>("BlogRatingID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BlogRatingID"), 1L, 1);
-
-                    b.Property<int>("BlogID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BlogRatingCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BlogTotalScore")
-                        .HasColumnType("int");
-
-                    b.HasKey("BlogRatingID");
-
-                    b.ToTable("BlogRatings");
                 });
 
             modelBuilder.Entity("MvcCoreBlogProject.EntityLayer.Concrete.Category", b =>

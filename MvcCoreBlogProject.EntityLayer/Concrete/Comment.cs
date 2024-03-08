@@ -13,6 +13,7 @@ namespace MvcCoreBlogProject.EntityLayer.Concrete
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime CreateDate { get; set; }
+        public int Point { get; set; } //star o puan
         public bool IsStatus { get; set; }
     }
 }
