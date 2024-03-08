@@ -1,4 +1,6 @@
 ﻿using FluentValidation.Results;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MvcCoreBlogProject.BusinessLayer.Abstract;
@@ -17,6 +19,12 @@ namespace MvcCoreBlogProject.Web.Controllers
             _blogService = blogService;
             _categoryService = categoryService;
             _authorService = authorService;
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Login");
         }
 
         public IActionResult Index()

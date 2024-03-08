@@ -19,6 +19,10 @@ namespace MvcCoreBlogProject.Web.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
+            if (User.Identity!.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
