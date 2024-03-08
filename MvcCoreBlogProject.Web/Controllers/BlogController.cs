@@ -47,7 +47,7 @@ namespace MvcCoreBlogProject.Web.Controllers
         {
             var list = _blogService.TGetCategoryByBlogList(id);
             var value = _categoryService.TGetByID(id);
-            //ViewBag.CategoryName = value.Name;
+            ViewBag.CategoryName = value.Name;
             return View(list.ToPagedList(sayfa, 6));
         }
 
