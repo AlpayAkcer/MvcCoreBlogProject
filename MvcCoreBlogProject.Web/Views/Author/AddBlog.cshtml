@@ -1,0 +1,76 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "AddBlog";
+    Layout = "~/Views/Shared/_AuthorLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Yeni Blog Yazısı Ekle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Author">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Yen Blog Yazısı Ekleme</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-outline card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">Yeni Blog Yazıları</h3>
+                    </div>
+                    @using (Html.BeginForm("AddBlog", "Author", FormMethod.Post))
+                    {
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Kategori</label>
+                                        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.Category, "--Seçim Yapınız", new { @class = "form-control select2" })
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Blog Başlığı</label>
+                                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.Title, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Açıklama</label>
+                                @Html.TextAreaFor(x => x.Description, new { @class = "textarea" })
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="exampleInputFile">Tamamlananlar</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <label for="exampleInputFile">Yeni Mi?</label>
+                                @Html.CheckBoxFor(x => x.IsFeatured, new { @class = "form-check-input" })
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

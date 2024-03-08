@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MvcCoreBlogProject.BusinessLayer.Abstract;
-using MvcCoreBlogProject.BusinessLayer.Concrete;
-using MvcCoreBlogProject.EntityLayer.Concrete;
-using MvcCoreBlogProject.Web.Dto.BlogDto;
 using X.PagedList;
 
 namespace MvcCoreBlogProject.Web.Controllers
@@ -50,7 +47,7 @@ namespace MvcCoreBlogProject.Web.Controllers
         {
             var list = _blogService.TGetCategoryByBlogList(id);
             var value = _categoryService.TGetByID(id);
-            ViewBag.CategoryName = value.Name;
+            //ViewBag.CategoryName = value.Name;
             return View(list.ToPagedList(sayfa, 6));
         }
 

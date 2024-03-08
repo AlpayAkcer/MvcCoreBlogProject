@@ -13,11 +13,11 @@
                 <!--author box-->
                 <div class="author-bio mb-50 bg-white p-30 border-radius-10">
                     <div class="author-image mb-30">
-                        <a href="author.html"><img src="@ViewBag.AuthorImage" alt="" class="avatar"></a>
+                        <a href="#"><img src="@ViewBag.AuthorImage" alt="" class="avatar"></a>
                     </div>
                     <div class="author-info">
                         <h3 class="font-weight-900">
-                            <span class="vcard author"><span class="fn"><a href="author.html" title="Posts by Steven" rel="author">@ViewBag.Authorname</a></span></span>
+                            <span class="vcard author"><span class="fn"><a href="#" title="Posts by Steven" rel="author">@ViewBag.Authorname</a></span></span>
                         </h3>
                         <h5 class="text-mute">@ViewBag.AuthorTitle</h5>
                         <div class="author-description text-muted">
@@ -55,7 +55,7 @@
                                             </ul>
                                         </div>
                                         <div class="post-content p-30">
-                                            <div class="entry-meta meta-0 font-small mb-10">
+                                            <div class="entry-meta font-small mb-10">
                                                 <a href='/Blog/Detail/@item.BlogID'><span class="post-cat text-info">@item.Category.Name</span></a>
                                                 <a href='/Blog/Detail/@item.BlogID'><span class="post-cat text-success">@item.Author.Name @item.Author.Surname</span></a>
                                             </div>
@@ -68,7 +68,7 @@
                                                 </div>
                                                 <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
                                                     <span class="post-on">@(((DateTime)item.CreateDate).ToString("dd/MM/yyyy"))</span>
-                                                    <span class="post-by has-dot">@item.TopViewCount Görüntüleme</span>
+                                                    <span class="post-by">@item.TopViewCount Görüntüleme</span>
                                                 </div>
                                             </div>
                                         </div>

@@ -1,4 +1,5 @@
 ﻿using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MvcCoreBlogProject.BusinessLayer.Abstract;
 using MvcCoreBlogProject.BusinessLayer.Concrete;
@@ -17,12 +18,14 @@ namespace MvcCoreBlogProject.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult Index(Author author)
         {
             AuthorValidator aw = new AuthorValidator();

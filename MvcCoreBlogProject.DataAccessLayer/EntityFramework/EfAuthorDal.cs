@@ -10,5 +10,12 @@ namespace MvcCoreBlogProject.DataAccessLayer.EntityFramework
         public EfAuthorDal(BlogContext context) : base(context)
         {
         }
+
+        public int GetAuthorByBlogCount(int id)
+        {
+            using var context = new BlogContext();
+            var value = context.Blogs.Where(x => x.AuthorID == id).Count();
+            return value;
+        }
     }
 }

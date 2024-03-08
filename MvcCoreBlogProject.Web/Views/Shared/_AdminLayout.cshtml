@@ -1,0 +1,84 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Yönetim Paneli</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Admin/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/Admin/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/Admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link href="/Admin/plugins/select2/css/select2.css" rel="stylesheet" />
+    <link href="/Admin/plugins/select2/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" />
+    <link rel="stylesheet" href="/Admin/plugins/summernote/summernote-bs4.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        @await Component.InvokeAsync("_DashboardNavbarPartialComponent")
+
+        @await Component.InvokeAsync("_DashboardSidebarPartialComponent")
+
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2014-@DateTime.Now.Year <a href="#">Admin Yönetim Paneli</a>.</strong>
+            Tüm hakları saklıdır
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.0.4
+            </div>
+        </footer>
+
+    </div>
+    <script src="/Admin/plugins/jquery/jquery.min.js"></script>
+    <script src="/Admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <link href="~/Admin/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap 4 -->
+    <script src="/Admin/plugins/select2/js/select2.full.min.js"></script>
+    <script src="/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/Admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="/Admin/dist/js/adminlte.js"></script>
+    <script src="/Admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/Admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/Admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="/Admin/plugins/summernote/summernote-bs4.min.js"></script>
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+
+            /* $('.select2').select2();*/
+            $('.select2').select2({
+                theme: 'bootstrap4'
+            });
+            $('.textarea').summernote();
+        });</script>
+</body>
+</html>
+
+
